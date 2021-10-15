@@ -1,0 +1,736 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+  
+  /* HTML5 display-role reset for older browsers */
+  
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+  
+  ol, ul {
+    list-style: none; }
+  
+  blockquote, q {
+    quotes: none; }
+  
+  blockquote {
+    &:before, &:after {
+      content: '';
+      content: none; } }
+  
+  q {
+    &:before, &:after {
+      content: '';
+      content: none; } }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+// reset
+@font-face {
+    font-family: "Gilroy";
+    src: url("./fonts/Gilroy-ExtraBold.otf");
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("./fonts/Futura.ttc");
+}
+
+@font-face {
+    font-family: "Gerbera";
+    src: url("./fonts/Gerbera.ttf");
+}
+
+@font-face {
+    font-family: "Gerbera-Light";
+    src: url("./fonts/Gerbera-Light.ttf");
+}
+
+@font-face {
+    font-family: "Gerbera-Medium";
+    src: url("./fonts/Gerbera-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Gerbera-Bold";
+    src: url("./fonts/Gerbera-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Gerbera-Black";
+    src: url("./fonts/Gerbera-Black.ttf");
+}
+
+$blue: #0071FF;
+$dark-blue: #002093;
+$gray: #494454;
+$white: #fff;
+
+body {
+    margin: 0;
+    padding: 0;
+    color: $gray;
+    font-family: "Gerbera";
+}
+
+*{
+    line-height: 130%;
+}
+
+.btn-blue {
+    display: block;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+    background: $blue;
+    border: none;
+    cursor: pointer;
+    font-size: 1.125em;
+    font-family: "Gerbera-Bold";
+    color: $white;
+    padding: 20px 70px;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-blue-outline {
+    display: block;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+    color: $blue;
+    background: none;
+    border: 1px solid #0071FF;
+    cursor: pointer;
+    font-size: 1.125em;
+    font-family: "Gerbera-Bold";
+    padding: 20px 70px;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+    &:hover{
+        background: $blue;
+        color: $white;
+    }
+    &:active{
+        background: $dark-blue;
+        color: $white;
+    }
+}
+
+.btn-glass {
+    display: block;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    border: none;
+    cursor: pointer;
+    font-size: 1.125em;
+    font-family: "Gerbera-Bold";
+    color: $white;
+    padding: 20px 40px;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+    &:hover{
+        background: rgba(255, 255, 255, 0.4);
+    }
+    &:active{
+        background: rgba(255, 255, 255, 0.6);
+    }
+}
+
+// BTNS
+
+.section-title{
+    position: relative;
+    font-size: 2.25em;
+    font-family: "Gerbera-Bold";
+    margin-bottom: 60px;
+    &::before{
+        content: "// ";
+        font-size: 1em;
+        font-family: "Gerbera-Bold";
+        color: $blue;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    @media screen and (max-width: 1260px){
+        margin: 0 30px;
+        box-sizing: border-box;
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px 0;
+    .logo {
+        width: 110px;
+    }
+    ul {
+        margin: 0;
+        margin-left: 60px;
+        list-style: none;
+        padding: 0;
+        font-size: 1.125em;
+        display: flex;
+        li {
+            margin-right: 30px;
+            a {
+                display: block;
+                text-decoration: none;
+                color: #494454;
+            }
+        }
+    }
+    .btn-blue{
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+section{
+    margin-top: 120px;
+}
+
+.first-section{
+    &__title{
+        font-family: "Gerbera-Bold";
+        font-size: 4.5em;
+        text-transform: uppercase;
+        color: $dark-blue;
+        max-width: 940px;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    &__subtitle{
+        font-family: "Gerbera";
+        font-size: 1.5em;
+        color: $gray;
+        max-width: 765px;
+        margin: 0;
+        padding: 0;
+        margin-left: 60px;
+        margin-top: 30px;
+    }
+    &__circle-text{
+        width: 350px;
+        position: absolute;
+        top: -80px;
+        right: -120px;
+    }
+    .btn-blue-outline{
+        margin-left: 60px;
+        margin-top: 40px;
+    }
+}
+
+.section-with-bg{
+    position: relative;
+    overflow: hidden;
+    &__text{
+        font-size: 2.25em;
+        font-family: "Gerbera-Bold";
+        max-width: 600px;
+        margin-bottom: 30px;
+        color: $white;
+    }
+    &__bg-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+    }
+    &__flex{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .section-with-bg__text{
+            margin-bottom: 0;
+        }
+    }
+    &__list{
+        text-align: center;
+    }
+    &__number{
+        margin-top: 10px;
+        font-size: 3.5em;
+        color: $white;
+        font-family: "Gerbera-Bold";
+    }
+    .container{
+        padding: 60px 0;
+        position: relative;
+        z-index: 10;
+    }
+    &::before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+        z-index: 1;
+    }
+    &.blue{
+        &::before{
+            background: rgba(0, 113, 255, 0.5);
+        }
+    }
+}
+
+.about-setion{
+    overflow: hidden;
+    &__subtitle{
+        font-size: 1.5em;
+        font-family: "Gerbera";
+        margin-bottom: 30px;
+    }
+    .swiper-wrapper{
+        height: 217px;
+    }
+    &__space-card{
+        margin-left: calc((100% - 1200px)/2);
+    }
+    &__card{
+        // flex: 0 0 auto;
+        padding: 40px;
+        color: $dark-blue;
+        font-size: 1.5em;
+        font-family: 'Gerbera-Bold';
+        white-space: nowrap;
+        background: url('./img/фон.png') no-repeat;
+        background-size: cover;
+        margin-right: 30px;
+        height: fit-content;
+        width: fit-content;
+        .about-setion__number{
+            display: block;
+            overflow: hidden;
+            height: 0;
+            color: rgba(0, 32, 147, 0.1);
+            transition: height 0.4s;
+            *:first-child{
+                font-size: 2.25em;
+                color: $dark-blue;
+            }
+        }
+        &.swiper-slide-active{
+            .about-setion__number{
+                height: 73px;
+            }
+        }
+    }
+    &__arrows{
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+    &__button-prev{
+        opacity: 0.2;
+        transition: opacity 0.2s, transform 0.4s;
+        outline: none;
+        &:hover{
+            opacity: 1;
+        }
+        &.swiper-button-disabled{
+            opacity: 0.2;
+            transform: scale(0.8);
+        }
+    }
+    &__button-next{
+       margin-left: 20px;
+       opacity: 0.2;
+       transition: opacity 0.2s, scale 0.2s;
+       outline: none;
+       &:hover{
+           opacity: 1;
+       }
+       &.swiper-button-disabled{
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+    }
+    
+    .row{
+        display: flex;
+        .col{
+            flex: 1 0 50%; 
+            .content{
+                padding: 0 60px;
+                &__title{
+                    position: relative;
+                    font-size: 1.5em;
+                    font-family: "Gerbera-Bold";
+                    &::before{
+                        content: "// ";
+                        font-size: 1em;
+                        font-family: "Gerbera-Bold";
+                        color: $blue;
+                    }
+                }
+                &__text{
+                    margin-bottom: 30px;
+                    margin-top: 12px;
+                    font-size: 1.125em;
+                    max-width:400px;
+                }
+                .btn-blue{
+                    margin-top: 10px;
+                }
+            }
+        }
+        .col-img{
+            max-width:540px;
+            position: relative;
+            img{
+                width: 100%;
+            }
+            .img-badge{
+                position: absolute;
+                bottom: 30px;
+                left: 0;
+                color: $white;
+                padding: 20px 0;
+                padding-right: 48px;
+                padding-left: 60px;
+                background: rgba(0, 32, 147, 0.5);
+                border-radius: 0px 2px 2px 0px;
+                &__text{
+                    font-size: 1.125em;
+                    color: rgba(255, 255, 255, 0.8);
+                    margin-top: 5px;
+                }
+                &__title{
+                    font-size: 1.5em;
+                    font-family: 'Gerbera-Bold';
+                }
+                &::before{
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: calc((100vw - 1200px)/2);
+                    transform: translateX(-100%);
+                    left: 0;
+                    top: 0;
+                    background: rgba(0, 32, 147, 0.5);
+                }
+            }
+        }
+    }
+}
+
+.cards-section{
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 -30px;
+    }
+    &__card{
+        padding: 40px;
+        margin: 0 15px;
+        background: url('./img/фон.png') no-repeat;
+        background-size: cover;
+        width: calc(100%/3);
+        box-sizing: border-box;
+        img{
+            width: 80px;
+        }
+        h5{
+            margin-top: 30px;
+            font-family: 'Gerbera-Bold';
+            font-size: 1.5em;
+            color: $dark-blue;
+        }
+        p{
+            margin-top: 20px;
+            font-size: 1.125em;
+        }
+    }
+}
+
+.companies-setion{
+    &__wrapper{
+        display: flex;
+        flex-direction: row;
+        margin:  -1.25em;
+        margin-bottom: 30px;
+        &:hover{
+            .companies-setion__item{
+                width: calc(100%/4);
+            }
+        }
+    }
+    &__item{
+        width: calc(100%/3);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        border-radius: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 220px;
+        margin: 0 0.625em;
+        transition: all 0.4s;
+        &:hover{
+            width: calc(100%/2) !important;
+            border: 1px solid #0071FF;
+        }
+    }
+}
+
+.team-setion{
+    .row{
+        display: flex;
+        .col{
+            flex: 1;
+            width: 50%;
+        }
+    }
+    &__text{
+        max-width:530px;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-size: 1.5em;
+    }
+    &__slider{
+        width: 100%;
+    }
+    &__button-prev{
+        width: fit-content;
+        outline: none;
+        position: absolute;
+        top: 185px;
+        left: 0;
+        z-index: 1000;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.2s;
+        &.swiper-button-disabled{
+            opacity: 0.2;
+            transform: scale(0.8);
+        }
+    }
+    &__button-next{
+        width: fit-content;
+        outline: none;
+        position: absolute;
+        top: 185px;
+        right: 0;
+        z-index: 1000;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.2s;
+        &.swiper-button-disabled{
+            opacity: 0.2;
+            transform: scale(0.8);
+        }
+    }
+    .swiper-wrapper{
+        width: fit-content;
+        .img-circle{
+            width: 362px;
+            height: 362px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            img{
+                object-fit: cover;
+            }
+        }
+        .swiper-slide{
+            text-align: center;
+            h1{
+                font-family: 'Gerbera-Bold';
+                color: $dark-blue;
+                font-size: 1.5em;
+                margin-top: 20px;
+            }
+            p{
+                font-size: 1.125em;
+                margin-top: 10px;
+            }
+        }
+        &__numbers{
+            position: absolute;
+            top: 0;
+            right: 100px;
+            font-size: 1.5em;
+            color: rgba(0, 113, 255, 0.2);
+            span:first-child{
+                font-size: 2.25em;
+                color: $blue;
+            }
+        }
+    }
+}
+
+.contact-setion{
+    .row{
+        display: flex;
+        .col{
+            flex: 0 0 50%;
+        }
+    }
+    &__card{
+        display: flex;
+        padding: 30px 60px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        border-radius: 2px;
+        max-width:490px;
+        transition: border-color 0.2s;
+        img{
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+        }
+        h2{
+            font-family: 'Gerbera-Bold';
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        p{
+            font-size: 1.125em;
+        }
+        &:not(:last-child){
+            margin-bottom: 30px;
+        }
+        &:hover{
+            border-color: $blue;
+        }
+    }
+    &__subtitle{
+        font-size: 1.5em;   
+        margin-bottom: 30px;
+    }
+    &__input-group{
+        margin-bottom: 30px;
+        p{
+            margin-left: 20px;
+            margin-bottom: -40px;
+            font-size: 1.125em;
+            color: rgba(73, 68, 84, 0.3);
+            transition: margin-bottom 0.5s;
+        }
+        input{
+            width: 100%;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            background: none;
+            outline: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            margin: 0;
+            transition: 0.5s;
+        }
+        input:required{
+            border-bottom: 2px solid $blue;
+        }
+        input:invalid{
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        &.focus{
+            p{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.footer{
+    margin-top: 120px;
+    background: #1B1B1B;
+    color: $white;
+    .container{
+        background: url('./img/1198A2B0-0FA0-41C1-91EC-30355F5758B4-removebg-preview\ 1.png') no-repeat;
+        background-size: auto 100%;
+        background-position: 0 0;
+        padding: 60px 0;
+    }
+    &__title{
+        font-size: 2.25em;
+        font-family: 'Gerbera-Bold';
+        text-transform: uppercase;
+    }
+    .row{
+        display: flex;
+        margin-top: 10px;
+        .col{
+            flex: 0 0 50%;
+        }
+        &:last-child{
+            margin-top: 100px;
+        }
+    }
+    &__icons{
+        display: flex;
+        a{
+            display: block;
+            text-decoration: none;
+            outline: none;
+            margin-right: 12px;
+        }
+    }
+    &__copyright{
+        font-size: 0.75em;
+        font-family: 'Futura';
+        text-transform: uppercase;
+        opacity: 0.5;
+    }
+    &__flex{
+        display: flex;
+        justify-content: space-between;
+        a{
+            color: $white;
+            &:first-child{
+                opacity: .5;
+                font-family: 'Futura';
+                text-transform: uppercase;
+                font-size: 0.75em;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+            &:last-child{
+                font-family: "Gilroy";
+                text-decoration: none;
+            }
+        }
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-top: 10px;
+            a{
+                text-decoration: none;
+                color: $white;
+                opacity: 0.5;
+                font-size: 1.125em;
+                transition: 0.2s;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
