@@ -1,4 +1,4 @@
-var swiper = new Swiper(".team-setion__slider", {
+var teamSwiper = new Swiper(".team-setion__slider", {
     effect: 'coverflow',
     coverflowEffect: {
         rotate: 30,
@@ -14,7 +14,7 @@ var swiper = new Swiper(".team-setion__slider", {
     }
 });
 
-var swiper = new Swiper(".about-setion__scroll-block", {
+var aboutSwiper = new Swiper(".about-setion__scroll-block", {
     speed: 500,
     spaceBetween: 0,
     centeredSlides: false,
@@ -29,6 +29,9 @@ var swiper = new Swiper(".about-setion__scroll-block", {
         prevEl: '.about-setion__button-prev',
     },  
 });
+
+aboutSwiper.on('resize', () => aboutSwiper.params.slidesOffsetBefore = (window.innerWidth - 1200)/2)
+aboutSwiper.on('afterInit', () => aboutSwiper.params.slidesOffsetBefore = (window.innerWidth - 1200)/2)
 
 function updateNumberSlider() {
     const slider = document.querySelector('.team-setion__slider .swiper-wrapper')
@@ -54,5 +57,18 @@ inputs.forEach(el => {
         if(!el.value){
             el.parentElement.classList.remove('focus')
         }
+    })
+})
+
+const companies = document.querySelectorAll('.companies-setion__item')
+
+companies.forEach(company => {
+    company.addEventListener('mouseover', () => {
+        company.parentElement.classList.add('hover')
+        company.classList.add('hover')
+    })
+    company.addEventListener('mouseout', () => {
+        company.parentElement.classList.remove('hover')
+        company.classList.remove('hover')
     })
 })
