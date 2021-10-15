@@ -30,7 +30,7 @@ var aboutSwiper = new Swiper(".about-setion__scroll-block", {
     },  
 });
 
-aboutSwiper.on('resize', () => aboutSwiper.params.slidesOffsetBefore = (window.innerWidth - 1200)/2)
+window.addEventListener('resize', () => aboutSwiper.params.slidesOffsetBefore = (window.innerWidth - 1200)/2)
 aboutSwiper.on('afterInit', () => aboutSwiper.params.slidesOffsetBefore = (window.innerWidth - 1200)/2)
 
 function updateNumberSlider() {
